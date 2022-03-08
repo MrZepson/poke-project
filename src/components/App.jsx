@@ -1,8 +1,15 @@
+import StartUp from "./StartUp";
+import Home from "./Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 const App = () => {
   return (
-    <>
-      <h1>Hello World!</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StartUp />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
