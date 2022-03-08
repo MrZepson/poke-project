@@ -1,5 +1,13 @@
+import Generations from "./Generations";
+import Header from "./Header";
+
 const Home = () => {
-  return <h1>Welcome home!</h1>;
+  return (
+    <>
+      <Header />
+      <Generations />
+    </>
+  );
 };
 
 export default Home;

@@ -45,6 +45,12 @@
   width: 20rem;
 }
 
-.animate-shit {
-  height: 33vh;
+.animate-top {
+  height: 15rem;
+}
+.animate-bottom {
+  height: 0;
+}
+.animate-img {
+  visibility: hidden;
 }

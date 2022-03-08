@@ -1,0 +1,25 @@
+.link {
+  height: 3rem;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.generation-container {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
