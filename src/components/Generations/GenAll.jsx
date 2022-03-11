@@ -24,7 +24,7 @@ const GenAll = () => {
   
   <section>
     {pokeApi.map((poke, i) => (
-      <Pokemon key={i} name={poke.name} id={i+1}/>
+      <Pokemon key={i} name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)} id={i+1}/>
     ))}
   </section>
   )
