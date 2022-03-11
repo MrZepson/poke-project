@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Pokemon from "../Pokemon";
 
 
 const GenAll = () => {
@@ -23,7 +24,7 @@ const GenAll = () => {
   
   <section>
     {pokeApi.map((poke, i) => (
-      <p key= {i}>{poke.name}</p>
+      <Pokemon key={i} name={poke.name} id={i+1}/>
     ))}
   </section>
   )
