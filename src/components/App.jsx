@@ -9,6 +9,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<StartUp />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/home/gen-all" element={<GenAll />} />
       </Routes>
     </BrowserRouter>
   );
