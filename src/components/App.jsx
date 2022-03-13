@@ -8,8 +8,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartUp />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/home/gen-all" element={<GenAll />} />
+        <Route path="home" element={<Home />}>
+          <Route path="gen-all" element={<GenAll />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
