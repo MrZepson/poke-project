@@ -1,36 +1,33 @@
 .poke-card-container {
-    display: flex;
-    background-color: green;
-    width: 332px;
-    height: 110px;
-    margin-top: 20px;
-    border-radius: 28px;
-    
+  display: flex;
+  background-color: rgb(44, 143, 44);
+  width: 332px;
+  height: 110px;
+  margin-top: 20px;
+  border-radius: 28px;
 }
 
 .poke-img-container {
-    height:100%;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-
-
-
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .poke-name-container {
-    height: 100%;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 10px;
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 10px;
+  color: white;
 }
 
 .poke-name-container h1 {
-   align-self: flex-end;
-   margin-right:25px ;
-   font-size: 2rem;
-   color: white;
+  align-self: flex-end;
+  margin-right: 25px;
+  font-size: 2rem;
+  color: white;
 }

@@ -1,10 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/generation.css";
 
 const Generation = () => {
+  const location = useLocation();
+  const pathName = location.pathname;
+
+  const currTab = [
+    { backgroundColor: "rgb(185, 185, 185)" },
+    { backgroundColor: "white" },
+  ];
+
   return (
     <>
-      <Link to="/home/gen-all" className="link">
+      <Link
+        style={pathName === "/home/gen-all" ? currTab[0] : currTab[1]}
+        to="/home/gen-all"
+        className="link"
+      >
         <p>All</p>
       </Link>
       <Link to="/GenOne" className="link">

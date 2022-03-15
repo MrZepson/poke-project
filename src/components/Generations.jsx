@@ -8,7 +8,9 @@ const Generations = () => {
       <div className="generation-container">
         <Generation />
       </div>
-      <Outlet />
+      <div className="pokemon-list-container">
+        <Outlet />
+      </div>
     </>
   );
 };
