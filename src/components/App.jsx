@@ -4,6 +4,7 @@ import GenAll from "./Generations/GenAll";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GenOne from "./Generations/GenOne";
 import GenTwo from "./Generations/GenTwo";
+import GenThree from "./Generations/GenThree";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="gen-all" element={<GenAll />} />
           <Route path="gen-one" element={<GenOne />} />
           <Route path="gen-two" element={<GenTwo />} />
+          <Route path="gen-three" element={<GenThree />} />
         </Route>
       </Routes>
     </BrowserRouter>
