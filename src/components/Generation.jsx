@@ -7,7 +7,7 @@ const Generation = () => {
 
   const currTab = [
     { backgroundColor: "rgb(185, 185, 185)" },
-    { backgroundColor: "white" },
+    { backgroundColor: "rgb(255, 255, 255)" },
   ];
 
   return (
@@ -19,28 +19,60 @@ const Generation = () => {
       >
         <p>All</p>
       </Link>
-      <Link to="/GenOne" className="link">
+      <Link
+        style={pathName === "/home/GenOne" ? currTab[0] : currTab[1]}
+        to="/home/GenOne"
+        className="link"
+      >
         <p>Gen 1</p>
       </Link>
-      <Link to="/GenTwo" className="link">
+      <Link
+        style={pathName === "/home/GenTwo" ? currTab[0] : currTab[1]}
+        to="/home/GenTwo"
+        className="link"
+      >
         <p>Gen 2</p>
       </Link>
-      <Link to="/GenThree" className="link">
+      <Link
+        style={pathName === "home/GenThree" ? currTab[0] : currTab[1]}
+        to="/home/GenThree"
+        className="link"
+      >
         <p>Gen 3</p>
       </Link>
-      <Link to="/GenFour" className="link">
+      <Link
+        style={pathName === "/home/GenFour" ? currTab[0] : currTab[1]}
+        to="/home/GenFour"
+        className="link"
+      >
         <p>Gen 4</p>
       </Link>
-      <Link to="/GenFive" className="link">
+      <Link
+        style={pathName === "/home/GenFive" ? currTab[0] : currTab[1]}
+        to="/home/GenFive"
+        className="link"
+      >
         <p>Gen 5</p>
       </Link>
-      <Link to="/GenSix" className="link">
+      <Link
+        style={pathName === "/home/GenSix" ? currTab[0] : currTab[1]}
+        to="/home/GenSix"
+        className="link"
+      >
         <p>Gen 6</p>
       </Link>
-      <Link to="/GenSeven" className="link">
+      <Link
+        style={pathName === "/home/GenSeven" ? currTab[0] : currTab[1]}
+        to="/home/GenSeven"
+        className="link"
+      >
         <p>Gen 7</p>
       </Link>
-      <Link to="/GenEight" className="link">
+      <Link
+        style={pathName === "/home/GenEight" ? currTab[0] : currTab[1]}
+        to="/home/GenEight"
+        className="link"
+      >
         <p>Gen 8</p>
       </Link>
     </>
