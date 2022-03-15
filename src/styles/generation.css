@@ -23,3 +23,10 @@
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
+
+.pokemon-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

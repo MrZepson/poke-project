@@ -9,9 +9,9 @@ const importAll = (r) => {
   return images;
 };
 
-const images = importAll(require.context("../../img/gen1/", false, /\.(png)$/));
+const images = importAll(require.context("../../img/gen1/", false, /\.png$/));
 
-const GenAll = () => {
+const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
 
   useEffect(fetchPokeApi, []);
@@ -19,7 +19,7 @@ const GenAll = () => {
   async function fetchPokeApi() {
     try {
       const res = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+        "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
       );
       const data = await res.json();
       setPokeApi(data.results);
@@ -44,4 +44,4 @@ const GenAll = () => {
   );
 };
 
-export default GenAll;
+export default GenOne;
