@@ -20,57 +20,57 @@ const Generation = () => {
         <p>All</p>
       </Link>
       <Link
-        style={pathName === "/home/GenOne" ? currTab[0] : currTab[1]}
-        to="/home/GenOne"
+        style={pathName === "/home/gen-one" ? currTab[0] : currTab[1]}
+        to="/home/gen-one"
         className="link"
       >
         <p>Gen 1</p>
       </Link>
       <Link
-        style={pathName === "/home/GenTwo" ? currTab[0] : currTab[1]}
-        to="/home/GenTwo"
+        style={pathName === "/home/gen-two" ? currTab[0] : currTab[1]}
+        to="/home/gen-two"
         className="link"
       >
         <p>Gen 2</p>
       </Link>
       <Link
-        style={pathName === "home/GenThree" ? currTab[0] : currTab[1]}
-        to="/home/GenThree"
+        style={pathName === "/home/gen-three" ? currTab[0] : currTab[1]}
+        to="/home/gen-three"
         className="link"
       >
         <p>Gen 3</p>
       </Link>
       <Link
-        style={pathName === "/home/GenFour" ? currTab[0] : currTab[1]}
-        to="/home/GenFour"
+        style={pathName === "/home/gen-four" ? currTab[0] : currTab[1]}
+        to="/home/gen-four"
         className="link"
       >
         <p>Gen 4</p>
       </Link>
       <Link
-        style={pathName === "/home/GenFive" ? currTab[0] : currTab[1]}
-        to="/home/GenFive"
+        style={pathName === "/home/gen-five" ? currTab[0] : currTab[1]}
+        to="/home/gen-five"
         className="link"
       >
         <p>Gen 5</p>
       </Link>
       <Link
-        style={pathName === "/home/GenSix" ? currTab[0] : currTab[1]}
-        to="/home/GenSix"
+        style={pathName === "/home/gen-six" ? currTab[0] : currTab[1]}
+        to="/home/gen-six"
         className="link"
       >
         <p>Gen 6</p>
       </Link>
       <Link
-        style={pathName === "/home/GenSeven" ? currTab[0] : currTab[1]}
-        to="/home/GenSeven"
+        style={pathName === "/home/gen-seven" ? currTab[0] : currTab[1]}
+        to="/home/gen-seven"
         className="link"
       >
         <p>Gen 7</p>
       </Link>
       <Link
-        style={pathName === "/home/GenEight" ? currTab[0] : currTab[1]}
-        to="/home/GenEight"
+        style={pathName === "/home/gen-eight" ? currTab[0] : currTab[1]}
+        to="/home/gen-eight"
         className="link"
       >
         <p>Gen 8</p>

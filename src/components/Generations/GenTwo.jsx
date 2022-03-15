@@ -9,9 +9,9 @@ const importAll = (r) => {
   return images;
 };
 
-const images = importAll(require.context("../../img/gen1/", false, /\.png$/));
+const images = importAll(require.context("../../img/gen2/", false, /\.png$/));
 
-const GenOne = () => {
+const GenTwo = () => {
   const [pokeApi, setPokeApi] = useState([]);
 
   useEffect(fetchPokeApi, []);
@@ -19,7 +19,7 @@ const GenOne = () => {
   async function fetchPokeApi() {
     try {
       const res = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
+        "https://pokeapi.co/api/v2/pokemon?limit=100&offset=151"
       );
       const data = await res.json();
       setPokeApi(data.results);
@@ -35,13 +35,13 @@ const GenOne = () => {
       {pokeApi.map((poke, i) => (
         <Pokemon
           key={i}
-          img={images[`${i + 1}.png`]}
+          img={images[`${i + 152}.png`]}
           name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
-          id={i + 1}
+          id={i + 152}
         />
       ))}
     </section>
   );
 };
 
-export default GenOne;
+export default GenTwo;
