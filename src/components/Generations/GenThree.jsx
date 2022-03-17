@@ -36,7 +36,11 @@ const GenThree = () => {
         <Pokemon
           key={i}
           img={images[`${i + 252}.png`]}
-          name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
+          name={
+            poke.name == "deoxys-normal"
+              ? "Deoxys"
+              : poke.name.charAt(0).toUpperCase() + poke.name.slice(1)
+          }
           id={i + 252}
         />
       ))}
