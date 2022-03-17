@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GenOne from "./Generations/GenOne";
 import GenTwo from "./Generations/GenTwo";
 import GenThree from "./Generations/GenThree";
+import GenFour from "./Generations/GenFour";
+import GenFive from "./Generations/GenFive";
+import GenSix from "./Generations/GenSix";
+import GenSeven from "./Generations/GenSeven";
 
 const App = () => {
   return (
@@ -16,6 +20,10 @@ const App = () => {
           <Route path="gen-one" element={<GenOne />} />
           <Route path="gen-two" element={<GenTwo />} />
           <Route path="gen-three" element={<GenThree />} />
+          <Route path="gen-four" element={<GenFour />} />
+          <Route path="gen-five" element={<GenFive />} />
+          <Route path="gen-six" element={<GenSix />} />
+          <Route path="gen-seven" element={<GenSeven />} />
         </Route>
       </Routes>
     </BrowserRouter>
