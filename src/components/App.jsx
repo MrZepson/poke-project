@@ -9,6 +9,7 @@ import GenFour from "./Generations/GenFour";
 import GenFive from "./Generations/GenFive";
 import GenSix from "./Generations/GenSix";
 import GenSeven from "./Generations/GenSeven";
+import GenEight from "./Generations/GenEight";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="gen-five" element={<GenFive />} />
           <Route path="gen-six" element={<GenSix />} />
           <Route path="gen-seven" element={<GenSeven />} />
+          <Route path="gen-eight" element={<GenEight />} />
         </Route>
       </Routes>
     </BrowserRouter>
