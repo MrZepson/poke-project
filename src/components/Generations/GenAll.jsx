@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import Pokemon from "../Pokemon";
 
-
 const GenAll = () => {
   const [pokeApi, setPokeApi] = useState([]);
-  useEffect(fetchPokeApi, [])
-  
-  const rotUrl = 'https://pokeapi.co/api/v2/'
-  
+  useEffect(fetchPokeApi, []);
+
+  const rotUrl = "https://pokeapi.co/api/v2/";
 
   async function fetchPokeApi() {
     try {
@@ -18,18 +16,15 @@ const GenAll = () => {
       console.log(err);
     }
   }
-  
-  console.log(pokeApi)
+
+  console.log(pokeApi);
   return (
-  
-  <section>
-    {pokeApi.map((poke, i) => (
-      <Pokemon key={i} name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)} id={i+1}/>
-    ))}
-  </section>
-  )
-  
+    <section>
+      {pokeApi.map((poke, i) => (
+        <Pokemon key={i} name={poke.name} id={i + 1} />
+      ))}
+    </section>
+  );
 };
 
 export default GenAll;
-
