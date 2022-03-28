@@ -1,4 +1,4 @@
-import "../styles/startUp.css";
+import styles from "./StartUp.module.css";
 import logo from "../img/logo/pokemon-logo-thefuckingrightone.svg.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,10 +8,16 @@ const StartUp = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="start-container">
-      <div className={expanded ? "start-top animate-top" : "start-top"}>
+    <div className={styles.container}>
+      <div
+        className={
+          expanded
+            ? `${styles.topContainer} ${styles.animateTop}`
+            : styles.topContainer
+        }
+      >
         <div
-          className="start-middle"
+          className={styles.middleContainer}
           onClick={() => {
             setExpanded(true);
             setTimeout(() => {
@@ -20,9 +26,13 @@ const StartUp = () => {
           }}
         ></div>
       </div>
-      <img src={logo} alt="pokemon logo" className="start-logo" />
+      <img src={logo} alt="Pokemon logo" className={styles.logo} />
       <div
-        className={expanded ? "start-bottom animate-bottom" : "start-bottom"}
+        className={
+          expanded
+            ? `${styles.bottomContainer} ${styles.animateBottom}`
+            : styles.bottomContainer
+        }
       ></div>
     </div>
   );

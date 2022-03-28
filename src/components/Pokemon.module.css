@@ -1,4 +1,4 @@
-.poke-card-container {
+.container {
   display: flex;
   background-color: rgb(44, 143, 44);
   width: 332px;
@@ -7,7 +7,7 @@
   border-radius: 28px;
 }
 
-.poke-img-container {
+.img {
   height: 100%;
   width: 30%;
   display: flex;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.poke-name-container {
+.nameContainer {
   height: 100%;
   width: 70%;
   display: flex;
@@ -25,7 +25,7 @@
   color: white;
 }
 
-.poke-name-container h1 {
+.nameContainer h1 {
   align-self: flex-end;
   margin-right: 25px;
   font-size: 2rem;
