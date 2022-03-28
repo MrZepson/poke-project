@@ -1,11 +1,11 @@
-import "../styles/header.css";
+import styles from "./SearchBar.module.css";
 
 const SearchBar = () => {
   return (
     <>
       <input
         type="text"
-        className="searchbar"
+        className={styles.searchbar}
         placeholder="Search Pokemon..."
       />
     </>

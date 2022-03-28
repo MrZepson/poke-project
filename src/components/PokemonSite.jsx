@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import "../styles/pokemonsite.css"
+
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import styles from "./PokemonSite.module.css";
+
 
 /*
 Fixa med css
@@ -28,6 +30,7 @@ const PokemonSite = () => {
         } catch (error) {
             console.log(error)
         }
+
     
     
     }, []);
@@ -40,23 +43,24 @@ const PokemonSite = () => {
     }
 
     return (
-        <section className="main-poke-container">
+        <section className={styles.container}>
             <article className="Back-button">
                 <button onClick={() => (BackHome())}>Back</button>
             </article>
-            <div className="name-wrapper">
+            <div className={styles.wrapper}>
                 <h1>#{pokeStats.id}</h1>
                 <h1>{pokeStats.name}</h1>
             </div>
             <div className="img-poke-container">
                 <img src={img} />
             </div>
-            <div className="type-container">
+            <div className={styles.typeContainer}>
                 <p></p>
             </div>
 
         </section>
     );
+
 };
 
 export default PokemonSite;

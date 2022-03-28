@@ -1,0 +1,23 @@
+.container {
+  background-color: yellow;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.wrapper {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.typeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+}
