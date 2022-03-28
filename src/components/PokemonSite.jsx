@@ -1,8 +1,8 @@
 
-import { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./PokemonSite.module.css";
-
+import logo from "../img/logo/pokemon-logo-thefuckingrightone.svg.png"
 
 /*
 Fixa med css
@@ -43,10 +43,15 @@ const PokemonSite = () => {
     }
 
     return (
-        <section className={styles.container}>
-            <article className="Back-button">
-                <button onClick={() => (BackHome())}>Back</button>
+        <>
+        <article className={styles.header}>
+            <img src={logo} alt="Logo"/>
+            <article className={styles.button}>
+                <p onClick={() => (BackHome())}>Back</p>
             </article>
+        </article>
+        <section className={styles.container}>
+            
             <div className={styles.wrapper}>
                 <h1>#{pokeStats.id}</h1>
                 <h1>{pokeStats.name}</h1>
@@ -59,6 +64,7 @@ const PokemonSite = () => {
             </div>
 
         </section>
+        </>
     );
 
 };
