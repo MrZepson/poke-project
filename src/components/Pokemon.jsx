@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./Pokemon.module.css";
 
 const Pokemon = ({ id, name, img }) => {
+  let navigate = useNavigate();
+
+  const HandleClick = (id) => {
+    console.log(id)
+    navigate ("/home/Pokemon", {state: id})
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.img}>
