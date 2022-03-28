@@ -10,6 +10,7 @@ import GenFive from "./Generations/GenFive";
 import GenSix from "./Generations/GenSix";
 import GenSeven from "./Generations/GenSeven";
 import GenEight from "./Generations/GenEight";
+import PokemonSite from "./PokemonSite";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<StartUp />} />
         <Route path="home" element={<Home />}>
+          <Route path="Pokemon" element={<PokemonSite />}/>
           <Route path="gen-all" element={<GenAll />} />
           <Route path="gen-one" element={<GenOne />} />
           <Route path="gen-two" element={<GenTwo />} />
