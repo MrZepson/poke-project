@@ -1,31 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "../styles/pokemonsite.css"
-
-
-/*
-klicka på pokemon så man kommer till sidan
-ta med "id" så fetch blir dynamisk
-bild på pokemon
-css
-rullband sak?
-Set context in pokemon
-value = id
-import useContext
-*/
-
 
 
 const PokemonSite = () => {
 
     const [pokeStats, setPokeStats] = useState([]);
+    let location = useLocation();
+    const Poke = location.state;
 
-    
+    let URL = `https://pokeapi.co/api/v2/pokemon/${Poke}`
 
     useEffect(() => {
         async function fetchData(){
         try {
             const res = await fetch(
-                "https://pokeapi.co/api/v2/pokemon/1"
+                URL
             );
             const data = await res.json();
             setPokeStats(data)

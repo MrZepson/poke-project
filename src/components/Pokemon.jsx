@@ -1,8 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/pokemon.css";
 
+
+
 const Pokemon = ({ id, name, img }) => {
+
+  let navigate = useNavigate();
+
+
+  const HandleClick = (id) => {
+    
+    console.log(id)
+    navigate ("/home/Pokemon", {state: id})
+    
+  };
+
   return (
-    <div className="poke-card-container">
+    <div className="poke-card-container" onClick={() => (HandleClick(id))}>
       <div className="poke-img-container">
         <img className="poke-img" src={img} alt={name} />
       </div>
