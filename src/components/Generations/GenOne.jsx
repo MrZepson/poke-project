@@ -13,13 +13,23 @@ const images = importAll(require.context("../../img/gen1/", false, /\.png$/));
 
 const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
+  const [limit, setLimit] = useState(10);
+  const [offset, setOffset] = useState(0);
+  const [scroll, setScroll] = useState(window.scrollY);
 
   useEffect(fetchPokeApi, []);
+
+  window.addEventListener("scroll", () => {
+    setScroll(window.scrollY);
+  });
+
+  console.log(scroll + window.innerHeight);
+  console.log(document.body.offsetHeight);
 
   async function fetchPokeApi() {
     try {
       const res = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
       );
       const data = await res.json();
       setPokeApi(data.results);

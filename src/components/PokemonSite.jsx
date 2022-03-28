@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import "../styles/pokemonsite.css"
+import styles from "./PokemonSite.module.css";
 
 
 const PokemonSite = () => {
@@ -25,22 +25,19 @@ const PokemonSite = () => {
         }
     }
     fetchData();
-    }, []);
+  }, []);
 
-
-    return (
-        <section className="main-poke-container">
-            <div className="name-wrapper">
-                <h1>#{pokeStats.id}</h1>
-                <h1>{pokeStats.name}</h1>
-            </div>
-            <div className="img-poke-container"></div>
-            <div className="type-container">
-                <p>TYPE</p>
-            </div>
-
-        </section>
-    );
+  return (
+    <section className={styles.container}>
+      <div className={styles.wrapper}>
+        <h1>#{pokeStats.id}</h1>
+        <h1>{pokeStats.name}</h1>
+      </div>
+      <div className={styles.typeContainer}>
+        <p>TYPE</p>
+      </div>
+    </section>
+  );
 };
 
 export default PokemonSite;
