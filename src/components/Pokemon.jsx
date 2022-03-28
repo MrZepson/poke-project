@@ -8,15 +8,15 @@ const Pokemon = ({ id, name, img }) => {
   let navigate = useNavigate();
 
 
-  const HandleClick = (id) => {
+  const HandleClick = (id, img) => {
     
-    console.log(id)
-    navigate ("/home/Pokemon", {state: id})
+    console.log(img)
+    navigate ("/pokemon", {state:{ id:id, img:img}})
     
   };
 
   return (
-    <div className="poke-card-container" onClick={() => (HandleClick(id))}>
+    <div className="poke-card-container" onClick={() => (HandleClick(id, img))}>
       <div className="poke-img-container">
         <img className="poke-img" src={img} alt={name} />
       </div>
