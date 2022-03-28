@@ -15,6 +15,7 @@ import PokemonSite from "./PokemonSite";
 const App = () => {
   return (
     <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<StartUp />} />
         <Route path="home" element={<Home />}>
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="gen-eight" element={<GenEight />} />
         </Route>
       </Routes>
+      
     </BrowserRouter>
   );
 };

@@ -11,6 +11,7 @@ const importAll = (r) => {
 
 const images = importAll(require.context("../../img/gen1/", false, /\.(png)$/));
 
+
 const GenAll = () => {
   const [pokeApi, setPokeApi] = useState([]);
 
@@ -31,6 +32,7 @@ const GenAll = () => {
   }
 
   return (
+    
     <section>
       {pokeApi.map((poke, i) => (
         <Pokemon
@@ -41,6 +43,7 @@ const GenAll = () => {
         />
       ))}
     </section>
+    
   );
 };
 
