@@ -45,7 +45,7 @@ const PokemonSite = () => {
     return (
         <>
         <article className={styles.header}>
-            <img src={logo} alt="Logo"/>
+            <img src={logo} alt="Logo" className={styles.logo}/>
             <article className={styles.button}>
                 <p onClick={() => (BackHome())}>Back</p>
             </article>
