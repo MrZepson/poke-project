@@ -30,3 +30,7 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+.pokemon-list-container:last-child {
+  margin-bottom: 20px;
+}
