@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./PokemonSite.module.css";
 import logo from "../img/logo/pokemon-logo-thefuckingrightone.svg.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
+
+
+//<FontAwesomeIcon icon={solid('user-secret')} />
+
 
 /*
 Fixa med css
@@ -47,7 +53,7 @@ const PokemonSite = () => {
         <article className={styles.header}>
             <img src={logo} alt="Logo" className={styles.logo}/>
             <article className={styles.button}>
-                <p onClick={() => (BackHome())}>Back</p>
+                <p onClick={() => (BackHome())}><FontAwesomeIcon icon={solid('backward')} /></p>
             </article>
         </article>
         <section className={styles.container}>
@@ -56,13 +62,14 @@ const PokemonSite = () => {
                 <h1>#{pokeStats.id}</h1>
                 <h1>{pokeStats.name}</h1>
             </div>
-            <div className="img-poke-container">
+            <section className={styles.content}>
+            <div className={styles.imgContainer}>
                 <img src={img} />
             </div>
             <div className={styles.typeContainer}>
-                <p></p>
+                <p>TYPE</p>
             </div>
-
+            </section>
         </section>
         </>
     );
