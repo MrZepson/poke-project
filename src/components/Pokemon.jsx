@@ -14,8 +14,8 @@ const Pokemon = ({ id, name, img }) => {
   };
 
   return (
-    <div className="poke-card-container" onClick={() => (HandleClick(id, img))}>
-      <div className="poke-img-container">
+    <div className={styles.container} onClick={() => (HandleClick(id, img))}>
+      <div className={styles.img}>
         <img className="poke-img" src={img} alt={name} />
         
       </div>
