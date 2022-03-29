@@ -1,15 +1,15 @@
 import SearchBar from "./SearchBar.jsx";
-import "../styles/header.css";
+import styles from "./Header.module.css";
 
 const Header = () => {
   return (
     <>
-      <div className="header-top">
-        <div className="searchbar-container">
+      <div className={styles.top}>
+        <div>
           <SearchBar />
         </div>
       </div>
-      <div className="header-bottom"></div>
+      <div className={styles.bottom}></div>
     </>
   );
 };

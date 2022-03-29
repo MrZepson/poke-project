@@ -1,11 +1,11 @@
-.start-container {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-.start-top {
+.topContainer {
   background-color: #e4000f;
   height: 50vh;
   width: 100%;
@@ -17,7 +17,7 @@
   transition: 1s;
 }
 
-.start-middle {
+.middleContainer {
   position: relative;
   bottom: -2.7rem;
   height: 5rem;
@@ -27,7 +27,7 @@
   background-color: white;
 }
 
-.start-bottom {
+.bottomContainer {
   position: absolute;
   bottom: 0;
   background-color: white;
@@ -38,19 +38,17 @@
   transition: 1s;
 }
 
-.start-logo {
+.logo {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 20rem;
 }
 
-.animate-top {
+.animateTop {
   height: 15rem;
 }
-.animate-bottom {
+
+.animateBottom {
   height: 0;
-}
-.animate-img {
-  visibility: hidden;
 }

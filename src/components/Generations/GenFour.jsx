@@ -36,7 +36,11 @@ const GenFour = () => {
         <Pokemon
           key={i}
           img={images[`${i + 387}.png`]}
-          name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
+          name={
+            poke.name == "wormadam-plant"
+              ? "Wormadam"
+              : poke.name.charAt(0).toUpperCase() + poke.name.slice(1)
+          }
           id={i + 387}
         />
       ))}
