@@ -43,7 +43,7 @@ const GenOne = () => {
   return (
     <section>
       {pokeApi.map((poke, i) => (
-        <Pokemon url = {poke.url}
+        <Pokemon
           key={i}
           img={images[`${i + 1}.png`]}
           name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
