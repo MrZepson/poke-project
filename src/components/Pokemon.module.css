@@ -1,15 +1,11 @@
-<<<<<<< Updated upstream:src/components/Pokemon.module.css
 .container {
-=======
-/*.poke-card-container {
->>>>>>> Stashed changes:src/styles/pokemon.css
   display: flex;
-  background-color: rgb(44, 143, 44);
+  /* background-color: rgb(44, 143, 44); */
   width: 332px;
   height: 110px;
   margin-top: 20px;
   border-radius: 28px;
-}*/
+}
 
 .img {
   height: 100%;
