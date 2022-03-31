@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Pokemon from "../Pokemon";
 
 const importAll = (r) => {
@@ -14,21 +14,9 @@ const images = importAll(require.context("../../img/gen1/", false, /\.png$/));
 const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
   const [from, setFrom] = useState(0);
-  const [scroll, setScroll] = useState(window.scrollY);
-  let maxScroll = scroll + window.innerHeight + 10;
 
-  useEffect(fetchPokeApi, [from]);
-
-  window.onscroll = function () {
-    setScroll(window.scrollY);
-    if (maxScroll >= document.body.offsetHeight) {
-      fetchMorePokemon();
-    }
-  };
-
-  function fetchMorePokemon() {
-    setFrom(from + 10);
-  }
+  useEffect(() => fetchPokeApi(), []);
+  useEffect(() => fetchPokeApi(), [from]);
 
   async function fetchPokeApi() {
     try {
@@ -36,8 +24,9 @@ const GenOne = () => {
         `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${from}`
       );
       const data = await res.json();
+      console.log(data.results);
       pokeApi.length > 0
-        ? setPokeApi((prev) => [...prev, ...data.results])
+        ? setPokeApi((pokeApi) => [...pokeApi, ...data.results])
         : setPokeApi(data.results);
     } catch (err) {
       console.log(
@@ -50,12 +39,14 @@ const GenOne = () => {
     <section>
       {pokeApi.map((poke, i) => (
         <Pokemon
+          url={poke.url}
           key={i}
-          img={images[`${i + 1}.png`]}
           name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
+          img={images[`${i + 1}.png`]}
           id={i + 1}
         />
       ))}
+      <button onClick={() => setFrom(from + 10)}>button</button>
     </section>
   );
 };

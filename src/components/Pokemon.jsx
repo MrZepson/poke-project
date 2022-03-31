@@ -2,7 +2,7 @@ import styles from "./Pokemon.module.css";
 import { useEffect, useState } from "react";
 
 const Pokemon = ({ id, name, img, url }) => {
-  const [type, setType] = useState();
+  const [types, setTypes] = useState([]);
   const [bgColor, setBgColor] = useState();
 
   const pokemonStyle = {
@@ -14,13 +14,25 @@ const Pokemon = ({ id, name, img, url }) => {
     borderRadius: "28px",
   };
 
-  fetch(url)
-    .then((results) => results.json())
-    .then((data) => setType(data.types[0].type.name));
+  useEffect(() => {
+    fetch(url)
+      .then((results) => results.json())
+      .then((data) => setTypes(data.types));
+  }, []);
 
-  useEffect(() => checkBGColor(), [type]);
+  useEffect(() => checkBGColor(), [types]);
 
   function checkBGColor() {
+    if (types.length > 0) {
+      if (types.length > 1 && types[0].type.name === "normal") {
+        setBackground(types[1].type.name);
+      } else {
+        setBackground(types[0].type.name);
+      }
+    }
+  }
+
+  function setBackground(type) {
     switch (type) {
       case "normal":
         return setBgColor("#BABBAD");
@@ -32,6 +44,10 @@ const Pokemon = ({ id, name, img, url }) => {
         return setBgColor("#A95EA1");
       case "ground":
         return setBgColor("#EACA59");
+      case "grass":
+        return setBgColor("#8BD751");
+      case "fire":
+        return setBgColor("#FA5542");
       case "rock":
         return setBgColor("#CEBC72");
       case "bug":
@@ -40,14 +56,10 @@ const Pokemon = ({ id, name, img, url }) => {
         return setBgColor("#7672D0");
       case "steel":
         return setBgColor("#C4C2DA");
-      case "fire":
-        return setBgColor("#FA5542");
       case "water":
         return setBgColor("#55AEFE");
       case "electric":
         return setBgColor("#FCE53A");
-      case "grass":
-        return setBgColor("#8BD751");
       case "psychic":
         return setBgColor("#FB65B6");
       case "ice":
@@ -57,8 +69,7 @@ const Pokemon = ({ id, name, img, url }) => {
       case "dark":
         return setBgColor("#8F6A57");
       case "fairy":
-        return setBgColor("#FB65B6");
-
+        return setBgColor("#FAADFF");
       default:
         return setBgColor("grey");
     }
