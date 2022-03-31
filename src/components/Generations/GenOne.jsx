@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Pokemon from "../Pokemon";
 
 const importAll = (r) => {
@@ -13,26 +13,32 @@ const images = importAll(require.context("../../img/gen1/", false, /\.png$/));
 
 const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
-  const [limit, setLimit] = useState(10);
-  const [offset, setOffset] = useState(0);
+  const [from, setFrom] = useState(0);
   const [scroll, setScroll] = useState(window.scrollY);
+  let maxScroll = scroll + window.innerHeight + 10;
 
-  useEffect(fetchPokeApi, []);
+  useEffect(fetchPokeApi, [from]);
 
-  window.addEventListener("scroll", () => {
+  window.onscroll = function () {
     setScroll(window.scrollY);
-  });
+    if (maxScroll >= document.body.offsetHeight) {
+      fetchMorePokemon();
+    }
+  };
 
-  console.log(scroll + window.innerHeight);
-  console.log(document.body.offsetHeight);
+  function fetchMorePokemon() {
+    setFrom(from + 10);
+  }
 
   async function fetchPokeApi() {
     try {
       const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+        `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${from}`
       );
       const data = await res.json();
-      setPokeApi(data.results);
+      pokeApi.length > 0
+        ? setPokeApi((prev) => [...prev, ...data.results])
+        : setPokeApi(data.results);
     } catch (err) {
       console.log(
         "Cound not fetch the pokemonlist. Try again in a few minutes."
