@@ -12,7 +12,7 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 
 /*
 Fixa med css
-skapa components istället för att ha allt i samma
+får inte ut abilities eller type
 */
 
 const PokemonSite = () => {
@@ -24,30 +24,29 @@ const PokemonSite = () => {
 
     let URL = `https://pokeapi.co/api/v2/pokemon/${Poke}`
 
-    useEffect(async() => {
-         
+    useEffect(() => {
+         async function fetchPoke() {
         try {
             const res = await fetch(
                 URL
             );
             const data = await res.json();
             setPokeStats(data)
-            console.log(pokeStats)
+            
         } catch (error) {
             console.log(error)
-        }
-
-    
-    
+        }}
+        fetchPoke();
     }, []);
 
-      
+      console.log(pokeStats)
     let navigate = useNavigate();
 
     const BackHome = () => {
         navigate(-1)
     }
 
+    
     return (
         <>
         <article className={styles.header}>
@@ -64,11 +63,14 @@ const PokemonSite = () => {
             </div>
             <section className={styles.content}>
             <div className={styles.imgContainer}>
-                <img src={img} />
+                <img src={img} alt={pokeStats.name}/>
             </div>
             <div className={styles.typeContainer}>
                 <p>TYPE</p>
             </div>
+            <article>
+                <p>ABILITY</p>
+            </article>
             </section>
         </section>
         </>

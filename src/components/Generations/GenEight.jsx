@@ -30,6 +30,7 @@ const GenEight = () => {
     }
   }
 
+  
   return (
     <section>
       {pokeApi.map((poke, i) => (
