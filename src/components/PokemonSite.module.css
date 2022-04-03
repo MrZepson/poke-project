@@ -2,25 +2,81 @@
 .container {
   background-color: yellow;
   width: 100%;
-  height: 100vh;
+  min-height: 70vh;
   display: flex;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
 }
 
 .wrapper {
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 40px;
+  margin-top: 40px;
+  padding: 10px;
+  width: 50%;
 }
+
+
 
 .typeContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row-reverse;
   background-color: white;
   border-radius: 10px;
   width: 60px;
   height: 30px;
+  margin-top: 40px;
 }
 
+<<<<<<< HEAD
 */
+=======
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  width: 50%;
+
+}
+
+.imgContainer img {
+  width: 150px;
+  height: 150px;
+}
+
+.button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 40px;
+}
+
+.button:hover {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  border: 2px solid white;
+}
+
+.header {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column-reverse;
+  
+}
+
+.logo {
+  width: 20rem;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+>>>>>>> a8723d50b70c81497c593ac245a71f9d90ed508d

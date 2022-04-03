@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background-color: rgb(44, 143, 44);
+  /* background-color: rgb(44, 143, 44); */
   width: 332px;
   height: 110px;
   margin-top: 20px;

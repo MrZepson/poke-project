@@ -30,10 +30,12 @@ const GenEight = () => {
     }
   }
 
+  
   return (
     <section>
       {pokeApi.map((poke, i) => (
         <Pokemon
+          url={poke.url}
           key={i}
           img={images[`${i + 810}.png`]}
           name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}

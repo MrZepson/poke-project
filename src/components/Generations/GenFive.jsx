@@ -34,6 +34,7 @@ const GenFive = () => {
     <section>
       {pokeApi.map((poke, i) => (
         <Pokemon
+          url={poke.url}
           key={i}
           img={images[`${i + 494}.png`]}
           name={poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}

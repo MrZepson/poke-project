@@ -21,7 +21,7 @@ const StartUp = () => {
           onClick={() => {
             setExpanded(true);
             setTimeout(() => {
-              navigate("/home");
+              navigate("/home/gen-all");
             }, 1750);
           }}
         ></div>
