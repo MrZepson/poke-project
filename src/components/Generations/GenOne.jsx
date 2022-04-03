@@ -15,8 +15,17 @@ const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
   const [from, setFrom] = useState(0);
 
-  useEffect(() => fetchPokeApi(), []);
-  useEffect(() => fetchPokeApi(), [from]);
+  useEffect(fetchPokeApi, [from]);
+
+  window.onscroll = () => {
+    if (
+      window.innerHeight + window.scrollY - 10 >=
+      document.body.scrollHeight
+    ) {
+      setFrom(from + 10);
+      console.log(from);
+    }
+  };
 
   async function fetchPokeApi() {
     try {
@@ -24,7 +33,6 @@ const GenOne = () => {
         `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${from}`
       );
       const data = await res.json();
-      console.log(data.results);
       pokeApi.length > 0
         ? setPokeApi((pokeApi) => [...pokeApi, ...data.results])
         : setPokeApi(data.results);
@@ -46,7 +54,6 @@ const GenOne = () => {
           id={i + 1}
         />
       ))}
-      <button onClick={() => setFrom(from + 10)}>button</button>
     </section>
   );
 };
