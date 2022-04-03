@@ -4,8 +4,6 @@ import styles from "./Pokemon.module.css";
 const Pokemon = ({ id, name, img }) => {
   let navigate = useNavigate();
 
-
-
   const HandleClick = (id, img) => {
     
     console.log(img)
@@ -17,7 +15,6 @@ const Pokemon = ({ id, name, img }) => {
     <div className="poke-card-container" onClick={() => (HandleClick(id, img))}>
       <div className="poke-img-container">
         <img className="poke-img" src={img} alt={name} />
-        
       </div>
       <div className={styles.nameContainer}>
         <h2>{name}</h2>

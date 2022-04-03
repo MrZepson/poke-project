@@ -1,13 +1,15 @@
 
+/*
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./PokemonSite.module.css";
+import { useNavigate } from "react-router-dom";
 
 
-/*
+
 Fixa med css
 skapa components istället för att ha allt i samma
-*/
+
 
 const PokemonSite = () => {
 
@@ -64,3 +66,4 @@ const PokemonSite = () => {
 };
 
 export default PokemonSite;
+*/
