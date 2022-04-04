@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./PokemonSite.module.css";
 import logo from "../img/logo/pokemon-logo-thefuckingrightone.svg.png"
-
-/*
-Fixa med css
-skapa components istället för att ha allt i samma
-*/
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+//import { pokemonStyleExport } from "./Pokemon"
+import allConstants from "./Pokemon"
 
 const PokemonSite = () => {
 
@@ -17,37 +16,47 @@ const PokemonSite = () => {
     const img = location.state.img;
 
     let URL = `https://pokeapi.co/api/v2/pokemon/${Poke}`
-
-    useEffect(async() => {
-         
+    
+    /*
+    useEffect(() => {
+         async function fetchPoke() {
         try {
             const res = await fetch(
                 URL
             );
             const data = await res.json();
             setPokeStats(data)
-            console.log(pokeStats)
+            
         } catch (error) {
             console.log(error)
-        }
-
-    
-    
+        }}
+        fetchPoke();
     }, []);
+    */
 
-      
+    useEffect(() => {
+        fetch(URL)
+        .then((results) => results.json())
+        .then((data) => setPokeStats(data));
+    }, []);
+    
+
+
+      console.log(pokeStats)
     let navigate = useNavigate();
 
     const BackHome = () => {
         navigate(-1)
     }
 
+    //console.log(pokemonStyle)
+    
     return (
         <>
         <article className={styles.header}>
             <img src={logo} alt="Logo" className={styles.logo}/>
             <article className={styles.button}>
-                <p onClick={() => (BackHome())}>Back</p>
+                <p onClick={() => (BackHome())}><FontAwesomeIcon icon={solid('backward')} /></p>
             </article>
         </article>
         <section className={styles.container}>
@@ -56,13 +65,17 @@ const PokemonSite = () => {
                 <h1>#{pokeStats.id}</h1>
                 <h1>{pokeStats.name}</h1>
             </div>
-            <div className="img-poke-container">
-                <img src={img} />
+            <section className={styles.content}>
+            <div className={styles.imgContainer}>
+                <img src={img} alt={pokeStats.name}/>
             </div>
             <div className={styles.typeContainer}>
-                <p></p>
+                <p>TYPE</p>
             </div>
-
+            <article>
+                <p>ABILITY</p>
+            </article>
+            </section>
         </section>
         </>
     );
