@@ -6,6 +6,13 @@ const Pokemon = ({ id, name, img, url }) => {
   const [types, setTypes] = useState([]);
   const [bgColor, setBgColor] = useState();
 
+
+  const HandleClick = (id, img) => {
+    
+    console.log(img)
+    navigate ("/pokemon", {state:{ id:id, img:img}})
+    
+
   const pokemonStyle = {
     display: "flex",
     backgroundColor: bgColor,
@@ -13,6 +20,7 @@ const Pokemon = ({ id, name, img, url }) => {
     height: "110px",
     marginTop: "20px",
     borderRadius: "28px",
+
   };
   
   
@@ -86,9 +94,19 @@ const Pokemon = ({ id, name, img, url }) => {
   };
 
   return (
+
     <div style={pokemonStyle} onClick={() => (HandleClick(id, img))}>
+
+
+    <div className="poke-card-container" onClick={() => (HandleClick(id, img))}>
+      <div className="poke-img-container">
+        <img className="poke-img" src={img} alt={name} />
+
+    <div style={pokemonStyle}>
+
       <div className={styles.img}>
         <img src={img} alt={name} />
+
       </div>
       <div className={styles.nameContainer}>
         <h2>{name}</h2>

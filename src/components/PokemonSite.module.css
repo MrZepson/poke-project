@@ -1,3 +1,4 @@
+/*
 .container {
   background-color: yellow;
   width: 100%;
@@ -28,6 +29,9 @@
   margin-top: 40px;
 }
 
+<<<<<<< HEAD
+*/
+=======
 .imgContainer {
   display: flex;
   justify-content: center;
@@ -75,3 +79,4 @@
   margin-left: 30px;
   margin-bottom: 20px;
 }
+>>>>>>> a8723d50b70c81497c593ac245a71f9d90ed508d

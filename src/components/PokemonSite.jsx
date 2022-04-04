@@ -1,12 +1,26 @@
 
+
+/*
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import styles from "./PokemonSite.module.css";
+import { useNavigate } from "react-router-dom";
+
+
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./PokemonSite.module.css";
 import logo from "../img/logo/pokemon-logo-thefuckingrightone.svg.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 //import { pokemonStyleExport } from "./Pokemon"
 import allConstants from "./Pokemon"
+
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
+
+
+//<FontAwesomeIcon icon={solid('user-secret')} />
 
 const PokemonSite = () => {
 
@@ -83,3 +97,4 @@ const PokemonSite = () => {
 };
 
 export default PokemonSite;
+*/
