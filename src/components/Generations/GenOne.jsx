@@ -16,6 +16,7 @@ const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(10);
+  const [btnDisplay, setBtnDisplay] = useState([]);
 
   useEffect(fetchPokeApi, [offset]);
 
@@ -26,6 +27,7 @@ const GenOne = () => {
     } else {
       setOffset((prev) => prev + 10);
       setLimit(1);
+      setBtnDisplay({ display: "none" });
     }
   }
 
@@ -56,7 +58,11 @@ const GenOne = () => {
           id={i + 1}
         />
       ))}
-      <button className={styles.button} onClick={() => fetchMorePokemon()}>
+      <button
+        className={styles.button}
+        style={btnDisplay}
+        onClick={() => fetchMorePokemon()}
+      >
         Load more
       </button>
     </section>
