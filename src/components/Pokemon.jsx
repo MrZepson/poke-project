@@ -1,5 +1,6 @@
 import styles from "./Pokemon.module.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Pokemon = ({ id, name, img, url }) => {
   const [types, setTypes] = useState([]);
@@ -13,7 +14,8 @@ const Pokemon = ({ id, name, img, url }) => {
     marginTop: "20px",
     borderRadius: "28px",
   };
-
+  
+  
   useEffect(() => {
     fetch(url)
       .then((results) => results.json())
@@ -74,9 +76,17 @@ const Pokemon = ({ id, name, img, url }) => {
         return setBgColor("grey");
     }
   }
+  
+  let navigate = useNavigate();
+  const HandleClick = (id, img) => {
+    
+    console.log(pokemonStyle.backgroundColor)
+    navigate ("/pokemon", {state:{ id:id, img:img}})
+    
+  };
 
   return (
-    <div style={pokemonStyle}>
+    <div style={pokemonStyle} onClick={() => (HandleClick(id, img))}>
       <div className={styles.img}>
         <img src={img} alt={name} />
       </div>
