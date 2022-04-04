@@ -78,8 +78,14 @@ const PokemonSite = () => {
           <div className={styles.typeContainer}>
             <p>{types[0].type.name}</p>
           </div>
-          <article className="abilities">
-            <p></p>
+          <article className={styles.abilitiesContainer}>
+            <p>{pokeAbil.map((poke, i) => (
+                i + 1 + ": " + poke.ability.name + " "
+            ))}</p>
+          </article>
+          <article className={styles.loreContainer}>
+              <h1>Lore</h1>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita esse quod libero!</p>
           </article>
         </section>
       </section>

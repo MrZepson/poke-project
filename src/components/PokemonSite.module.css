@@ -71,3 +71,17 @@
   margin-left: 30px;
   margin-bottom: 20px;
 }
+
+.abilitiesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
