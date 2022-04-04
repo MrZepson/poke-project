@@ -14,8 +14,7 @@ import logo from "../img/logo/pokemon-logo-thefuckingrightone.svg.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-//import { pokemonStyleExport } from "./Pokemon"
-import allConstants from "./Pokemon"
+
 
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
@@ -25,13 +24,14 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 const PokemonSite = () => {
 
     const [pokeStats, setPokeStats] = useState([]);
+    const [pokeAbil, setPokeAbil] = useState([]);
     let location = useLocation();
     const Poke = location.state.id;
     const img = location.state.img;
 
     let URL = `https://pokeapi.co/api/v2/pokemon/${Poke}`
     
-    /*
+    console.log(location.state.bgColor)
     useEffect(() => {
          async function fetchPoke() {
         try {
@@ -40,30 +40,43 @@ const PokemonSite = () => {
             );
             const data = await res.json();
             setPokeStats(data)
-            
         } catch (error) {
             console.log(error)
         }}
         fetchPoke();
     }, []);
-    */
-
     useEffect(() => {
-        fetch(URL)
-        .then((results) => results.json())
-        .then((data) => setPokeStats(data));
-    }, []);
-    
+        async function fetchAbil() {
+       try {
+           const res = await fetch(
+               URL
+           );
+           const data = await res.json();
+           setPokeAbil(data.abilities)
+       } catch (error) {
+           console.log(error)
+       }}
+       fetchAbil();
+   }, []);
 
 
-      console.log(pokeStats)
+      console.log(pokeAbil)
     let navigate = useNavigate();
 
     const BackHome = () => {
         navigate(-1)
     }
 
-    //console.log(pokemonStyle)
+    const pokeTypeStyle = {
+        width: "100%",
+        height: "70vh",
+        display: "flex",
+        backgroundColor: location.state.bgColor,
+    };
+
+    const types = location.state.types;
+
+    
     
     return (
         <>
@@ -73,7 +86,7 @@ const PokemonSite = () => {
                 <p onClick={() => (BackHome())}><FontAwesomeIcon icon={solid('backward')} /></p>
             </article>
         </article>
-        <section className={styles.container}>
+        <section className={styles.container} style={pokeTypeStyle}>
             
             <div className={styles.wrapper}>
                 <h1>#{pokeStats.id}</h1>
@@ -84,10 +97,12 @@ const PokemonSite = () => {
                 <img src={img} alt={pokeStats.name}/>
             </div>
             <div className={styles.typeContainer}>
-                <p>TYPE</p>
+                <p>{types[0].type.name}</p>
             </div>
-            <article>
-                <p>ABILITY</p>
+            <article className="abilities">
+                <p>
+                    
+                </p>
             </article>
             </section>
         </section>
