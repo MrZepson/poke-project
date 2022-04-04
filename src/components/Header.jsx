@@ -1,12 +1,12 @@
-import SearchBar from "./SearchBar.jsx";
 import styles from "./Header.module.css";
+import Searchbar from "./SearchBar";
 
 const Header = () => {
   return (
     <>
       <div className={styles.top}>
         <div>
-          <SearchBar />
+          <Searchbar />
         </div>
       </div>
       <div className={styles.bottom}></div>
