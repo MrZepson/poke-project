@@ -17,15 +17,9 @@ const GenOne = () => {
 
   useEffect(fetchPokeApi, [from]);
 
-  window.onscroll = () => {
-    if (
-      window.innerHeight + window.scrollY - 10 >=
-      document.body.scrollHeight
-    ) {
-      setFrom(from + 10);
-      console.log(from);
-    }
-  };
+  function fetchMorePokemon() {
+    setFrom((prev) => prev + 10);
+  }
 
   async function fetchPokeApi() {
     try {
@@ -54,6 +48,7 @@ const GenOne = () => {
           id={i + 1}
         />
       ))}
+      <button onClick={() => fetchMorePokemon()}>Load more</button>
     </section>
   );
 };
