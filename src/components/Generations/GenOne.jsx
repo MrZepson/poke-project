@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Pokemon from "../Pokemon";
+import styles from "./Gens.module.css";
 
 const importAll = (r) => {
   let images = {};
@@ -38,7 +39,7 @@ const GenOne = () => {
   }
 
   return (
-    <section>
+    <section className={styles.container}>
       {pokeApi.map((poke, i) => (
         <Pokemon
           url={poke.url}
@@ -48,7 +49,9 @@ const GenOne = () => {
           id={i + 1}
         />
       ))}
-      <button onClick={() => fetchMorePokemon()}>Load more</button>
+      <button className={styles.button} onClick={() => fetchMorePokemon()}>
+        Load more
+      </button>
     </section>
   );
 };
