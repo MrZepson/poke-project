@@ -11,27 +11,14 @@ import GenSix from "./Generations/GenSix";
 import GenSeven from "./Generations/GenSeven";
 import GenEight from "./Generations/GenEight";
 import PokemonSite from "./PokemonSite";
-import Searchbar from "./SearchBar";
-import Results from "./Results";
-
-
-
 
 const App = () => {
-  
   return (
-    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartUp />} />
         <Route path="pokemon" element={<PokemonSite />} />
         <Route path="home" element={<Home />}>
-<<<<<<< HEAD
-        <Route path="searchbar" element={<Searchbar />}/>
-        <Route path="results" element={<Results />}/>
-          
-=======
->>>>>>> a8723d50b70c81497c593ac245a71f9d90ed508d
           <Route path="gen-all" element={<GenAll />} />
           <Route path="gen-one" element={<GenOne />} />
           <Route path="gen-two" element={<GenTwo />} />
@@ -44,7 +31,6 @@ const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
-    
   );
 };
 
