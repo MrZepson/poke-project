@@ -2,6 +2,8 @@ import styles from "./Pokemon.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
 const Pokemon = ({ id, name, img, url }) => {
   const [types, setTypes] = useState([]);
   const [bgColor, setBgColor] = useState();
@@ -79,9 +81,7 @@ const Pokemon = ({ id, name, img, url }) => {
   
   let navigate = useNavigate();
   const HandleClick = (id, img) => {
-    
-    console.log(pokemonStyle.backgroundColor)
-    navigate ("/pokemon", {state:{ id:id, img:img}})
+    navigate ("/pokemon", {state:{ id:id, img:img, bgColor:bgColor, types:types}})
     
   };
 

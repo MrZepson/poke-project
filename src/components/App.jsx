@@ -12,8 +12,13 @@ import GenSeven from "./Generations/GenSeven";
 import GenEight from "./Generations/GenEight";
 import PokemonSite from "./PokemonSite";
 
+
+
+
 const App = () => {
+  
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartUp />} />
@@ -31,6 +36,7 @@ const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
+    
   );
 };
 
