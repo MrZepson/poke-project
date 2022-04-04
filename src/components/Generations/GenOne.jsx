@@ -14,18 +14,25 @@ const images = importAll(require.context("../../img/gen1/", false, /\.png$/));
 
 const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
-  const [from, setFrom] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
 
-  useEffect(fetchPokeApi, [from]);
+  useEffect(fetchPokeApi, [offset]);
 
   function fetchMorePokemon() {
-    setFrom((prev) => prev + 10);
+    if (offset > 140) return;
+    if (offset < 140) {
+      setOffset((prev) => prev + 10);
+    } else {
+      setOffset((prev) => prev + 10);
+      setLimit(1);
+    }
   }
 
   async function fetchPokeApi() {
     try {
       const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${from}`
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
       );
       const data = await res.json();
       pokeApi.length > 0
