@@ -1,14 +1,14 @@
 import styles from "./SearchBar.module.css";
+/*import { Pokedex } from "./Pokedex"*/
 
 const SearchBar = () => {
   return (
-    <>
-      <input
-        type="text"
-        className={styles.searchbar}
-        placeholder="Search Pokemon..."
-      />
-    </>
+    <div className="">
+        <div className="Card">
+          {/*<Pokedex />*/}
+          <input className={styles.searchbar} type="text" placeholder="Search Pokemon..." />
+        </div>
+    </div>
   );
 };
 
