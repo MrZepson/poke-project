@@ -16,7 +16,7 @@ const GenOne = () => {
   const [pokeApi, setPokeApi] = useState([]);
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(10);
-  const [btnDisplay, setBtnDisplay] = useState([]);
+  const [btnDisplay, setBtnDisplay] = useState({});
 
   useEffect(fetchPokeApi, [offset]);
 
