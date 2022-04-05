@@ -8,7 +8,7 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 const PokemonSite = () => {
   const [pokeStats, setPokeStats] = useState([]);
   const [pokeAbil, setPokeAbil] = useState([]);
-  const [poke, setPoke] = useState([])
+  const [poke, setPoke] = useState([]);
   let location = useLocation();
   const Poke = location.state.id;
   const img = location.state.img;
@@ -16,6 +16,7 @@ const PokemonSite = () => {
   let URL = `https://pokeapi.co/api/v2/pokemon/${Poke}`;
 
   console.log(location.state.bgColor);
+
   useEffect(() => {
     async function fetchPoke() {
       try {
@@ -28,6 +29,7 @@ const PokemonSite = () => {
     }
     fetchPoke();
   }, []);
+
   useEffect(() => {
     async function fetchAbil() {
       try {
@@ -40,6 +42,7 @@ const PokemonSite = () => {
     }
     fetchAbil();
   }, []);
+
   useEffect(() => {
     async function fetchStats() {
       try {
@@ -54,6 +57,7 @@ const PokemonSite = () => {
   }, []);
 
   console.log(pokeStats);
+
   let navigate = useNavigate();
 
   const BackHome = () => {
@@ -68,7 +72,7 @@ const PokemonSite = () => {
   };
 
   const types = location.state.types;
-  
+
   return (
     <>
       <article className={styles.header}>
@@ -83,24 +87,33 @@ const PokemonSite = () => {
         <div className={styles.wrapper}>
           <h1>#{pokeStats.id}</h1>
           <h1>{pokeStats.name}</h1>
-          <h3 className={styles.typeContainer}>{types[0].type.name.toUpperCase() }</h3>
+          <h3 className={styles.typeContainer}>
+            {types[0].type.name.toUpperCase()}
+          </h3>
         </div>
         <section className={styles.content}>
           <div className={styles.imgContainer}>
             <img src={img} alt={pokeStats.name} />
-         
           </div>
           <article className={styles.abilitiesContainer}>
             <div>
-              {pokeAbil.map((item, i) => <p key={i} >{(i + 1)}: {item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1)}</p>)}
+              {pokeAbil.map((item, i) => (
+                <p key={i}>
+                  {i + 1}:{" "}
+                  {item.ability.name.charAt(0).toUpperCase() +
+                    item.ability.name.slice(1)}
+                </p>
+              ))}
             </div>
             <div className={styles.stats}>
-              {poke.map((name, i) => <p key={i}>{name.stat.name}: {name.base_stat}</p>)}
+              {poke.map((name, i) => (
+                <p key={i}>
+                  {name.stat.name}: {name.base_stat}
+                </p>
+              ))}
             </div>
           </article>
-
         </section>
-        
       </section>
     </>
   );
