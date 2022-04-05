@@ -1,10 +1,14 @@
 
 .container {
-  width: 100%;
-  min-height: 70vh;
-  display: flex;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .wrapper {
@@ -14,22 +18,22 @@
   width: 50%;
 }
 
+
 .typeContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row-reverse;
+  margin-top: 10px;
   background-color: white;
   border-radius: 10px;
-  width: 60px;
+  width: 95px;
   height: 30px;
-  margin-top: 40px;
+  
 }
 
 .imgContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   margin-left: 30px;
   width: 50%;
 }
@@ -77,11 +81,18 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  margin-left: 30px;
+  
+}
+
+.stats {
+  display: flex;
 }
 
 .loreContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
+  padding-top: 30px;
 }
