@@ -23,8 +23,8 @@ const GenAll = () => {
   useEffect(fetchPokeApi, [offset]);
 
   function fetchMorePokemon() {
-    if (offset > 879) return;
-    if (offset < 879) {
+    if (offset > 880) return;
+    if (offset < 880) {
       setOffset((prev) => prev + 10);
     } else {
       setOffset((prev) => prev + 10);
