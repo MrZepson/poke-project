@@ -6,69 +6,54 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const PokemonSite = () => {
-  const [pokeStats, setPokeStats] = useState([]);
   const [pokeAbil, setPokeAbil] = useState([]);
-  const [poke, setPoke] = useState([])
-  let location = useLocation();
-  const Poke = location.state.id;
+  const [poke, setPoke] = useState([]);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pokemonId = location.state.id;
   const img = location.state.img;
+  const pokemonName = location.state.name;
+  const types = location.state.types;
 
-  let URL = `https://pokeapi.co/api/v2/pokemon/${Poke}`;
-
-  console.log(location.state.bgColor);
-  useEffect(() => {
-    async function fetchPoke() {
-      try {
-        const res = await fetch(URL);
-        const data = await res.json();
-        setPokeStats(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchPoke();
-  }, []);
-  useEffect(() => {
-    async function fetchAbil() {
-      try {
-        const res = await fetch(URL);
-        const data = await res.json();
-        setPokeAbil(data.abilities);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchAbil();
-  }, []);
-  useEffect(() => {
-    async function fetchStats() {
-      try {
-        const res = await fetch(URL);
-        const data = await res.json();
-        setPoke(data.stats);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchStats();
-  }, []);
-
-  console.log(pokeStats);
-  let navigate = useNavigate();
+  const pokeTypeStyle = {
+    backgroundColor: location.state.bgColor,
+  };
 
   const BackHome = () => {
     navigate(-1);
   };
 
-  const pokeTypeStyle = {
-    width: "100%",
-    height: "70vh",
-    display: "flex",
-    backgroundColor: location.state.bgColor,
-  };
+  const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 
-  const types = location.state.types;
-  
+  // Fetching everything
+  useEffect(() => {
+    fetchAbil();
+    fetchStats();
+  }, []);
+
+  // All fetch-functions
+
+  async function fetchAbil() {
+    try {
+      const res = await fetch(URL);
+      const data = await res.json();
+      setPokeAbil(data.abilities);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchStats() {
+    try {
+      const res = await fetch(URL);
+      const data = await res.json();
+      setPoke(data.stats);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <article className={styles.header}>
@@ -80,27 +65,46 @@ const PokemonSite = () => {
         </article>
       </article>
       <section className={styles.container} style={pokeTypeStyle}>
-        <div className={styles.wrapper}>
-          <h1>#{pokeStats.id}</h1>
-          <h1>{pokeStats.name}</h1>
-          <h3 className={styles.typeContainer}>{types[0].type.name.toUpperCase() }</h3>
-        </div>
-        <section className={styles.content}>
-          <div className={styles.imgContainer}>
-            <img src={img} alt={pokeStats.name} />
-         
+        <div className={styles.topWrapper}>
+          <div className={styles.nameBox}>
+            <h1>#{pokemonId}</h1>
+            <h1>{pokemonName}</h1>
           </div>
-          <article className={styles.abilitiesContainer}>
-            <div>
-              {pokeAbil.map((item, i) => <p key={i} >{(i + 1)}: {item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1)}</p>)}
+          <div className={styles.imgBox}>
+            <img className={styles.img} src={img} alt={pokemonName} />
+          </div>
+        </div>
+        <div className={styles.typeContainer}>
+          <div className={styles.typeBox}>
+            <h2>{types[0].type.name.toUpperCase()}</h2>
+          </div>
+        </div>
+        <div className={styles.abilContainer}>
+          <div className={styles.abilBox}>
+            <h3>Abilities:</h3>
+            <div className={styles.abilities}>
+              {pokeAbil.map((item, i) => (
+                <p key={i}>
+                  {i + 1}:{" "}
+                  {item.ability.name.charAt(0).toUpperCase() +
+                    item.ability.name.slice(1)}
+                </p>
+              ))}
             </div>
+          </div>
+        </div>
+        <div className={styles.statContainer}>
+          <div className={styles.statBox}>
+            <h3>Stats:</h3>
             <div className={styles.stats}>
-              {poke.map((name, i) => <p key={i}>{name.stat.name}: {name.base_stat}</p>)}
+              {poke.map((name, i) => (
+                <p key={i}>
+                  {name.stat.name.toUpperCase()}: {name.base_stat}
+                </p>
+              ))}
             </div>
-          </article>
-
-        </section>
-        
+          </div>
+        </div>
       </section>
     </>
   );
