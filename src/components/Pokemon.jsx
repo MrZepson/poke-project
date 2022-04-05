@@ -80,7 +80,7 @@ const Pokemon = ({ id, name, img, url }) => {
 
   const HandleClick = (id, img) => {
     navigate("/pokemon", {
-      state: { id: id, img: img, bgColor: bgColor, types: types },
+      state: { id, img, bgColor, types, name },
     });
   };
 
